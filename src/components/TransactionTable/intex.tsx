@@ -4,7 +4,7 @@ import { Container } from "./style";
 
 export function TransactionTable() {
   useEffect(() => {
-    api.get("/transactions").then((data) => console.log(data));
+    api.get("/transactions").then((response) => console.log(response.data));
   }, []);
   return (
     <Container>
