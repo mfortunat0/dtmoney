@@ -21,6 +21,13 @@ export function NewTransactionModal({
 
   function handleCreateNewTransactin(event: FormEvent) {
     event.preventDefault();
+
+    const data = {
+      type,
+      title,
+      value,
+      category,
+    };
   }
 
   return (
