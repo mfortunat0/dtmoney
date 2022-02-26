@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import closeImage from "../../assets/close.svg";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
+import { api } from "../../services/api";
 import { Container, RadioBox, TransactionTypeContainer } from "./style";
 
 interface NewTransactionModalProps {
@@ -28,6 +29,8 @@ export function NewTransactionModal({
       value,
       category,
     };
+
+    api.post("/transactions", data);
   }
 
   return (
