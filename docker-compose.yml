@@ -1,0 +1,24 @@
+version: "3"
+services:
+  database:
+    image: postgres:14-alpine3.15
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+
+  server:
+    build: ./server-node
+    environment:
+      DATABASE_URL: "postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_NAME}"
+      PORT: ${SERVER_PORT}
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    command: sh -c './wait-for.sh database:5432 -- yarn prisma migrate deploy && yarn start'
+    depends_on:
+      - database
+
+  client:
+    build: ./client
+    ports:
+      - 3000:${CLIENT_PORT}

@@ -1,5 +1,5 @@
 FROM node:16.14.0-alpine3.15
-WORKDIR /app
+WORKDIR /app/server
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
