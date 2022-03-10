@@ -11,7 +11,6 @@ services:
     build: ./server-node
     environment:
       DATABASE_URL: "postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_DB_NAME}"
-      PORT: ${SERVER_PORT}
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     command: sh -c './wait-for.sh database:5432 -- yarn prisma migrate deploy && yarn start'

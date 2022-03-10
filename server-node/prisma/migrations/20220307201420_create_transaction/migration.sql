@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "transaction" (
+CREATE TABLE "transactions" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "type" TEXT NOT NULL,
