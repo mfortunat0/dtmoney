@@ -1,0 +1,7 @@
+FROM denoland/deno:1.19.2
+WORKDIR /app/server
+USER deno
+COPY deps.ts .
+RUN deno cache deps.ts
+COPY . .
+CMD deno run --allow-net --allow-env --allow-read index.ts

@@ -1,0 +1,21 @@
+version: "3"
+services:
+  database:
+    image: postgres:14-alpine3.15
+    environment:
+      POSTGRES_DB: ${DATABASE_DB_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+
+  server:
+    build: ./server-deno
+    restart: always
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    depends_on:
+      - database
+
+  client:
+    build: ./client
+    ports:
+      - 3000:${CLIENT_PORT}
