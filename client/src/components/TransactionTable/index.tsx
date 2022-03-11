@@ -3,7 +3,6 @@ import { Container } from "./style";
 
 export function TransactionTable() {
   const { transactions } = useTransactions();
-  console.log(transactions);
 
   return (
     <Container>
