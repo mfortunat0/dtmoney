@@ -62,9 +62,11 @@ docker-compose up
 docker-compose -f docker-compose.deno.yml up
 ```
 
+<br><br>
+
 ## Desenvolvimento
 
-Suba os containers de desenvolvimento de acordo com servidor de preferencia.
+Para testar e fazer alterações, suba os containers de desenvolvimento de acordo com servidor de preferencia.
 
 ```bash
 # Servido po Node
